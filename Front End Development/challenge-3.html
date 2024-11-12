@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: สร้างฟอร์มร้านเบอร์เกอร์</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #overlay {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #e63946;
+            text-align: center;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 15px 0;
+        }
+
+        label, span {
+            color: #457b9d;
+            font-weight: bold;
+        }
+
+        section {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="number"], select, textarea, input[list] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f1faee;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1d3557;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #457b9d;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="overlay">
+        <img src="https://i.pinimg.com/736x/9b/71/80/9b7180299366cb6183ae8e185ce891bf.jpg" width="200" height="150" alt="Burger Image">
+        <hr>
+        <form action="submission.html" method="POST">
+            <h1>Create a Burger!</h1>
+            
+            <section>
+                <label for="patty">What type of protein would you like?</label>
+                <select name="patty" id="patty">
+                    <option value="beef">Beef</option>
+                    <option value="chicken">Chicken</option>
+                    <option value="pork">Pork</option>
+                    <option value="veggie">Veggie</option>
+                    <option value="tofu">Tofu</option>
+                </select>
+            </section>
+            <hr>
+
+            <section>
+                <label for="amount">How many patties would you like?</label>
+                <input type="number" name="amount" id="amount" min="1" max="10">
+            </section>
+            <hr>
+
+            <section>
+                <label for="doneness">How do you want your patty cooked?</label>
+                <br>
+                <span>Rare</span>
+                <input type="range" name="doneness" id="doneness" value="3" min="1" max="5">
+                <span>Well-Done</span>
+            </section>
+            <hr>
+
+            <section>
+                <span>What toppings would you like?</span>
+                <br>
+                <input type="checkbox" name="topping" id="lettuce" value="lettuce">
+                <label for="lettuce">Lettuce</label>
+                <input type="checkbox" name="topping" id="tomato" value="tomato">
+                <label for="tomato">Tomato</label>
+                <input type="checkbox" name="topping" id="onion" value="onion">
+                <label for="onion">Onion</label>
+                <input type="checkbox" name="topping" id="pickles" value="pickles">
+                <label for="pickles">Pickles</label>
+                <input type="checkbox" name="topping" id="olives" value="olives">
+                <label for="olives">Olives</label>
+                <input type="checkbox" name="topping" id="bacon" value="bacon">
+                <label for="bacon">Bacon</label>
+                <input type="checkbox" name="topping" id="jalapenos" value="jalapenos">
+                <label for="jalapenos">Jalapeños</label>
+            </section>
+            <hr>
+
+            <section>
+                <span>Would you like to add cheese?</span>
+                <br>
+                <input type="radio" name="cheese" id="yes" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" name="cheese" id="no" value="no">
+                <label for="no">No</label>
+            </section>
+            <hr>
+
+            <section>
+                <label for="bun">What type of bun would you like?</label>
+                <select name="bun" id="bun">
+                    <option value="sesame">Sesame</option>
+                    <option value="potato">Potato</option>
+                    <option value="pretzel">Pretzel</option>
+                </select>
+            </section>
+            <hr>
+
+            <section>
+                <label for="sauce">What type of sauce would you like?</label>
+                <select name="sauce" id="sauce">
+                    <option value="ketchup">Ketchup</option>
+                    <option value="mayo">Mayo</option>
+                    <option value="mustard">Mustard</option>
+                    <option value="bbq">BBQ Sauce</option>
+                    <option value="ranch">Ranch</option>
+                    <option value="hot_sauce">Hot Sauce</option>
+                    <option value="special_sauce">Special Sauce</option>
+                </select>
+            </section>
+            <hr>
+
+            <section>
+                <label for="extra">Anything else you want to add?</label>
+                <br>
+                <textarea id="extra" name="extra" rows="3" cols="40"></textarea>
+            </section>
+            <hr>
+
+            <section>
+                <input type="submit" value="Submit">
+            </section>
+        </form>
+    </section>
+</body>
+</html>
