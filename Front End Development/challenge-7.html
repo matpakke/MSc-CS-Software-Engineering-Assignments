@@ -3,175 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: สร้างเอกสารอ้างอิง</title>
-    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <title>Challenge: เปลี่ยนเว็บไซต์รับเลี้ยงสุนัข</title>
     <style>
-        /* General page styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #1d3557;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: #457b9d;
-            border-bottom: 2px solid #457b9d;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        /* Table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #457b9d;
-            color: #fff;
-            font-size: 1em;
-            font-weight: normal;
-        }
-
-        td {
-            font-size: 0.95em;
-        }
-
-        .code {
-            font-family: monospace;
-            color: #e63946;
-            background-color: #f9ecec;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-
-        /* Table row hover effect */
-        tr:hover {
-            background-color: #f1faee;
-        }
-
-        /* Footer table styling */
-        tfoot td {
-            font-weight: bold;
-            color: #1d3557;
-            background-color: #f1faee;
-            text-align: center;
-        }
+        
     </style>
 </head>
 <body>
-    <h1>MITRE ATT&CK Framework</h1>
-
-    <h2>Core ATT&CK Tactics</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Tactic</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><span class="code">Initial Access</span></td>
-                <td>Techniques that adversaries use to gain an initial foothold within a network.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Execution</span></td>
-                <td>Techniques that result in adversary-controlled code running on a local or remote system.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Persistence</span></td>
-                <td>Techniques that adversaries use to maintain their foothold.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Privilege Escalation</span></td>
-                <td>Techniques that adversaries use to gain higher-level permissions on a system or network.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Defense Evasion</span></td>
-                <td>Techniques that adversaries use to avoid detection throughout their compromise.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Credential Access</span></td>
-                <td>Techniques that adversaries use to steal credentials, such as account names and passwords.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Discovery</span></td>
-                <td>Techniques that allow adversaries to gain knowledge about the system and internal network.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Lateral Movement</span></td>
-                <td>Techniques that adversaries use to move through the network.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Example Techniques</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Technique</th>
-                <th>Tactic</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><span class="code">Phishing</span></td>
-                <td>Initial Access</td>
-                <td>Tricking users into providing credentials or running malware.</td>
-            </tr>
-            <tr>
-                <td><span class="code">PowerShell</span></td>
-                <td>Execution</td>
-                <td>Using PowerShell commands to execute scripts and code.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Create Account</span></td>
-                <td>Persistence</td>
-                <td>Creating new accounts to ensure continued access.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Process Injection</span></td>
-                <td>Defense Evasion</td>
-                <td>Injecting code into processes to hide execution.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Credential Dumping</span></td>
-                <td>Credential Access</td>
-                <td>Extracting credentials from a system to use later.</td>
-            </tr>
-            <tr>
-                <td><span class="code">Remote Desktop Protocol (RDP)</span></td>
-                <td>Lateral Movement</td>
-                <td>Using RDP to move to other systems on the network.</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3">MITRE ATT&CK helps in identifying and defending against cyber threats.</td>
-            </tr>
-        </tfoot>
-    </table>
+    <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#dogs">Dogs</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      
+      <h1>Pictures of Dogs</h1>
+      
+      <section id="gallery">
+        <img src="https://images.unsplash.com/photo-1453227588063-bb302b62f50b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80" alt="">
+        
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt="">
+        
+      </section>
+      
+      <form action="" id="register-form">
+        <input type="text" placeholder="username">
+        <input type="password" placeholder="password">
+        <button>LOG ME IN</button>
+      </form>    
 </body>
 </html>
+  
+  
