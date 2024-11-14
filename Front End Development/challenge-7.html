@@ -5,7 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge: เปลี่ยนเว็บไซต์รับเลี้ยงสุนัข</title>
     <style>
-        
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* Gallery styling */
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid yellow;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        /* Change image frame to blue on hover */
+        #gallery img:hover {
+            border-color: blue;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            #gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Form styling */
+        #register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+
+        /* Gray upper border for the username box */
+        #register-form input[type="text"] {
+            border-top: 3px solid gray;
+        }
+
+        #register-form input, #register-form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #register-form button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        #register-form button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -16,24 +112,20 @@
           <li><a href="#dogs">Dogs</a></li>
           <li><a href="#about">About</a></li>
         </ul>
-      </nav>
-      
-      <h1>Pictures of Dogs</h1>
-      
-      <section id="gallery">
-        <img src="https://images.unsplash.com/photo-1453227588063-bb302b62f50b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80" alt="">
-        
-        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt="">
-        
-      </section>
-      
-      <form action="" id="register-form">
-        <input type="text" placeholder="username">
-        <input type="password" placeholder="password">
+    </nav>
+    
+    <h1>Pictures of Dogs</h1>
+    
+    <section id="gallery">
+        <img src="https://images.unsplash.com/photo-1453227588063-bb302b62f50b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt="Dog 1">
+        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80" alt="Dog 2">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80" alt="Dog 3">
+    </section>
+    
+    <form action="" id="register-form">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
         <button>LOG ME IN</button>
-      </form>    
+    </form>    
 </body>
 </html>
-  
-  
