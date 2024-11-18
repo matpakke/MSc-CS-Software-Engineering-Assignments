@@ -1,0 +1,137 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge: แก้ไข Layout Mobile App</title>
+    <style>
+  .container {
+    display: grid;
+    max-width: 375px;
+    min-height: 700px;
+    margin: auto;
+    border: 2px solid #626262;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 20px;
+    row-gap: 10px;
+  }
+
+  .nav {
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr auto; /* nav-name 1/2, nav-menu aligned to the right */
+    align-items: center;
+  }
+
+  .nav-name {
+    color: #ea5b3c;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .nav-menu {
+    color: #626262;
+    font-size: 30px;
+    font-weight: 600;
+    justify-self: end; /* Align to the right */
+  }
+
+  .banner {
+    background-color: #ffecd5;
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 2fr 6fr; /* banner-item1 takes 2/8, banner-item2 takes 6/8 */
+  }
+
+  .banner-item1 {
+    background-color: #feffe4;
+  }
+
+  .banner-item2 {
+    background-color: #feffe4;
+  }
+
+  .main {
+    background-color: #ffffff;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(8, 1fr); /* Base grid structure with 8 columns */
+  }
+
+  .item {
+    border-radius: 10px; /* Add rounded edges to all items */
+    height: 100px; /* Uniform height for all main items */
+  }
+
+  .main-item1 {
+    background-color: #fdc788;
+    grid-column: span 4; /* 4/8 (50%) */
+  }
+
+  .main-item2 {
+    background-color: #ff9d9c;
+    grid-column: span 4; /* 4/8 (50%) */
+  }
+
+  .main-item3 {
+    background-color: #95ffb9;
+    grid-column: span 2; /* 2/8 */
+  }
+
+  .main-item4 {
+    background-color: #80c3f2;
+    grid-column: span 3; /* 3/8 */
+  }
+
+  .main-item5 {
+    background-color: #a281e7;
+    grid-column: span 3; /* 3/8 */
+  }
+
+  .main-item6 {
+    background-color: #f0f0f0;
+    grid-column: span 7; /* 7/8 */
+  }
+
+  .main-item7 {
+    background-color: #f0f0f0;
+    grid-column: span 1; /* 1/8 */
+  }
+
+  .footer {
+    background-color: #6a85f0;
+    border-radius: 10px;
+    padding: 5px 10px; /* Reduce footer height */
+    color: white;
+    font-size: 14px; /* Adjust text size for compact appearance */
+    text-align: center;
+  }
+
+  </style>      
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <div class="nav-name">WeStride</div>
+        <div class="nav-menu">☰</div>
+      </div>
+      <div class="banner">
+        <div class="item banner-item1"></div>
+        <div class="item banner-item2"></div>
+      </div>
+      <div class="main">
+        <div class="item main-item1"></div>
+        <div class="item main-item2"></div>
+        <div class="item main-item3"></div>
+        <div class="item main-item4"></div>
+        <div class="item main-item5"></div>
+        <div class="item main-item6"></div>
+        <div class="item main-item7"></div>
+      </div>
+      <div class="footer">Developed by TÆ Nattawoot</div>
+    </div>
+  </body>
+</html>
