@@ -18,13 +18,14 @@ Repository for assignments and quizzes for the Master of Science in Computer Sci
 | Quiz: Pseudo-class และ Pseudo-element                                                                     | - / 100 pts  | No submission for this quiz             |
 | Challenge: สร้างเว็บไซต์พอร์ตโฟลิโอ                                                                      | - / 100 pts  | No submission for this assignment       |
 | Quiz: Box Model                                                                                           | 100 / 100 pts| Score: 100 out of 100 points           |
-| Challenge: แก้ไข Layout Mobile App                                                                       | - / 100 pts  | No submission for this assignment       |
+| [Challenge: แก้ไข Layout Mobile App](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-10.html)                                                                       | 100 / 100 pts  | No submission for this assignment       |
 | Challenge: สร้าง Card List ด้วย Bootstrap                                                                | - / 100 pts  | No submission for this assignment       |
 | Challenge: ฟอร์ม login และสมัครสมาชิก                                                                    | - / 100 pts  | No submission for this assignment       |
 | การพัฒนาเว็บแอปพลิเคชันในการจัดการสินค้าคงคลัง: กรณีศึกษาร้านไพโรจน์พลาสติก                         | - / 100 pts  | No submission for this quiz             |
 | Quiz: Bootstrap Grid System                                                                               | 100 / 100 pts| Score: 100 out of 100 points           |
 | [Challenge: สร้างตารางผลไม้](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-2.html)                                                                               | 100 / 100 pts  | No submission for this assignment       |
 | Challenge: สร้าง Airbnb Clone                                                                             | - / 100 pts  | No submission for this assignment       |
+
 
 
 
