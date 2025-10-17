@@ -10,7 +10,7 @@ Repository for assignments and quizzes for the Master of Science in Computer Sci
 | Quiz: HTML Basics, Tag และ Attribute                                                                      | - / 100 pts  | No submission for this quiz             |
 | [Challenge: สร้าง list หนังน่าดูปี 2022](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-4.html)                                                                   | 100 / 100 pts  | No submission for this assignment       |
 | [Challenge: CSS Selector และ Properties](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-5.html)                                                                    | 100 / 100 pts  | No submission for this assignment       |
-| Challenge: สร้างเอกสารอ้างอิง                                                                            | - / 100 pts  | No submission for this quiz             |
+| [Challenge: สร้างเอกสารอ้างอิง](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-6.html)                                                                            | 100 / 100 pts  | No submission for this quiz             |
 | Quiz: Specificity                                                                                         | - / 100 pts  | No submission for this quiz             |
 | Challenge: เปลี่ยนเว็บไซต์รับเลี้ยงสุนัข                                                                | - / 100 pts  | No submission for this assignment       |
 | Challenge: สร้างวงกลมหมุน                                                                               | 95 / 100 pts  | No submission for this assignment       |
@@ -25,6 +25,7 @@ Repository for assignments and quizzes for the Master of Science in Computer Sci
 | Quiz: Bootstrap Grid System                                                                               | 100 / 100 pts| Score: 100 out of 100 points           |
 | [Challenge: สร้างตารางผลไม้](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-2.html)                                                                               | 100 / 100 pts  | No submission for this assignment       |
 | Challenge: สร้าง Airbnb Clone                                                                             | - / 100 pts  | No submission for this assignment       |
+
 
 
 
