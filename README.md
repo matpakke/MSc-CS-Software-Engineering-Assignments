@@ -20,11 +20,13 @@ Repository for assignments and quizzes for the Master of Science in Computer Sci
 | Quiz: Box Model                                                                                           | 100 / 100 pts| Pass           |
 | [Challenge: แก้ไข Layout Mobile App](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-10.html)                                                                       | 100 / 100 pts  | Pass       |
 | [Challenge: สร้าง Card List ด้วย Bootstrap](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-11.html)                                                                | 100 / 100 pts  | Pass       |
-| Challenge: ฟอร์ม login และสมัครสมาชิก                                                                    | - / 100 pts  | No submission for this assignment       |
+| [Challenge: ฟอร์ม login และสมัครสมาชิก](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-12.html)                                                                    | - / 100 pts  | No submission for this assignment       |
 | การพัฒนาเว็บแอปพลิเคชันในการจัดการสินค้าคงคลัง: กรณีศึกษาร้านไพโรจน์พลาสติก                         | - / 100 pts  | No submission for this quiz             |
 | Quiz: Bootstrap Grid System                                                                               | 100 / 100 pts| Pass           |
 | [Challenge: สร้างตารางผลไม้](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-2.html)                                                                               | 100 / 100 pts  | Pass       |
-| Challenge: สร้าง Airbnb Clone                                                                             | - / 100 pts  | No submission for this assignment       |
+| [Challenge: สร้าง Airbnb Clone](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-13.html)                                                                             | - / 100 pts  | No submission for this assignment       |
+
+
 
 
 

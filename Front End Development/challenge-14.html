@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: สร้างเว็บไซต์พอร์ตโฟลิโอ</title>
+    <style>
+        /* --- 🎨 CSS STYLES 🎨 --- */
+        :root {
+            --dark-bg: #1a1a2e;
+            --main-color: #0f4c75; /* A deep, professional blue */
+            --accent-color: #38bdf8; /* Brighter blue for highlights (like a command prompt) */
+            --text-light: #f0f0f0;
+            --text-dark: #cccccc;
+            --font-mono: 'Fira Code', 'Roboto Mono', monospace;
+            --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #21213b;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--main-color);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: linear-gradient(135deg, var(--main-color), #09395a);
+            color: var(--text-light);
+            padding: 40px 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2em;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        nav {
+            background-color: #162447;
+            padding: 10px 0;
+            border-bottom: 2px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--main-color);
+            color: white;
+        }
+
+        /* --- SECTION STYLES --- */
+        section {
+            padding: 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        section h3 {
+            font-size: 2em;
+            color: var(--accent-color);
+            border-bottom: 2px dashed var(--main-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* --- SUMMARY & SKILLS --- */
+        #summary p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .skill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background-color: #364f6b;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* --- EXPERIENCE & EDUCATION --- */
+        .job-entry, .education-entry {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 3px solid var(--main-color);
+            transition: border-left 0.3s;
+        }
+
+        .job-entry:hover, .education-entry:hover {
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .job-title, .degree-title {
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .company, .institution {
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .dates {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .description li::before {
+            content: '>'; /* Command prompt bullet */
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* --- PROJECT SECTION (Interactive) --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #2c3a5e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .project-card p {
+            color: var(--text-dark);
+            font-size: 0.95em;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #162447;
+            color: var(--text-dark);
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header h2 {
+                font-size: 1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li a {
+                text-align: center;
+                border-bottom: 1px solid #333;
+            }
+
+            .container {
+                padding: 0;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Alex Thorne</h1>
+            <h2>$ ./Cybersecurity_Analyst -focus "Threat Hunting & Incident Response"</h2>
+            <div class="contact-info">
+                <a href="mailto:alex.thorne@email.com">Email</a> |
+                <a href="https://linkedin.com/in/alexthorne" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/alex-cybsec" target="_blank">GitHub</a> |
+                <a href="tel:555-123-4567">555-123-4567</a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </nav>
+
+        <section id="summary">
+            <h3>Summary</h3>
+            <p>Highly analytical and results-driven Cybersecurity Analyst with 4+ years of experience in Security Operations Center (SOC) environments. Proven ability to **detect, analyze, and mitigate complex cyber threats** using SIEM tools, network forensics, and scripting. Seeking to leverage expertise in **cloud security (AWS/Azure)** and incident response to protect critical infrastructure.</p>
+        </section>
+
+        <section id="skills">
+            <h3>Technical Skills & Certifications</h3>
+            
+            <p><strong>Tools & Platforms:</strong></p>
+            <div class="skill-group">
+                <span class="skill-tag">Splunk (ES)</span>
+                <span class="skill-tag">Elastic Stack</span>
+                <span class="skill-tag">Wireshark</span>
+                <span class="skill-tag">Metasploit</span>
+                <span class="skill-tag">Nmap</span>
+                <span class="skill-tag">Burp Suite</span>
+                <span class="skill-tag">SentinelOne</span>
+                <span class="skill-tag">AWS Security Hub</span>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Languages & Concepts:</strong></p>
+            <div class="skill-group">
+                <span class="skill-tag">Python (Scripting)</span>
+                <span class="skill-tag">Bash/PowerShell</span>
+                <span class="skill-tag">Threat Hunting</span>
+                <span class="skill-tag">Vulnerability Management</span>
+                <span class="skill-tag">Network Forensics</span>
+                <span class="skill-tag">Incident Response</span>
+                <span class="skill-tag">Cloud Security (Azure/AWS)</span>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Certifications:</strong></p>
+            <div class="skill-group">
+                <span class="skill-tag">CompTIA Security+</span>
+                <span class="skill-tag">CEH (Certified Ethical Hacker)</span>
+                <span class="skill-tag">GSEC</span>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h3>Professional Experience</h3>
+
+            <div class="job-entry">
+                <div class="job-title">Senior Cybersecurity Analyst</div>
+                <div class="company">TechProtect Solutions</div>
+                <div class="dates">Sept 2021 – Present</div>
+                <div class="description">
+                    <ul>
+                        <li>Led the **Incident Response (IR)** team in triaging and resolving high-priority security incidents, reducing average resolution time by 15%.</li>
+                        <li>Developed and deployed **Splunk alerts and dashboards** for proactive threat detection, focusing on lateral movement and data exfiltration.</li>
+                        <li>Conducted **regular threat hunting** using MITRE ATT&CK framework, resulting in the discovery of two persistent state attacks (APTs).</li>
+                        <li>Automated **vulnerability scanning** and reporting using Python scripts, improving patch management efficiency by 25%.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-title">Security Operations Center (SOC) Analyst L2</div>
+                <div class="company">Global Digital Corp</div>
+                <div class="dates">Jan 2019 – Aug 2021</div>
+                <div class="description">
+                    <ul>
+                        <li>Monitored, analyzed, and responded to security events from various sources, including firewalls, IPS/IDS, and endpoint protection.</li>
+                        <li>Performed **network and host forensics** during investigations of malware infections and unauthorized access attempts.</li>
+                        <li>Maintained and tuned the organization's SIEM (Elastic Stack) to minimize false positives and enhance detection accuracy.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h3>Key Projects (Click to Expand)</h3>
+            <div class="project-grid">
+
+                <div class="project-card" data-details="A proof-of-concept Python utility that maps internal network devices, identifies misconfigurations, and scores them based on CIS benchmarks. Utilizes 'paramiko' for SSH automation.">
+                    <h4>Automated Compliance Mapper</h4>
+                    <p>Python tool for network configuration auditing.</p>
+                </div>
+
+                <div class="project-card" data-details="Built a home lab utilizing ESXi, pfSense, and multiple VMs (Windows/Linux) to simulate real-world attacks (e.g., Buffer Overflow, SQLi) and practice defense/forensics.">
+                    <h4>Cyber Defense Home Lab Setup</h4>
+                    <p>Virtual environment for offensive/defensive training.</p>
+                </div>
+
+                <div class="project-card" data-details="A detailed report and presentation on the top five current nation-state APT groups, their TTPs (Tactics, Techniques, and Procedures), and recommended countermeasures for enterprise networks.">
+                    <h4>APT Threat Intelligence Report</h4>
+                    <p>In-depth analysis of current Advanced Persistent Threats.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="education">
+            <h3>Education</h3>
+
+            <div class="education-entry">
+                <div class="degree-title">M.S. in Cybersecurity</div>
+                <div class="institution">University of Technology</div>
+                <div class="dates">2017 – 2018</div>
+            </div>
+            
+            <div class="education-entry">
+                <div class="degree-title">B.S. in Computer Science</div>
+                <div class="institution">State College of Engineering</div>
+                <div class="dates">2013 – 2017</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; <span id="current-year"></span> Alex Thorne | Secure & Responsive Design</p>
+        </footer>
+
+    </div>
+
+    <script>
+        /* --- 💻 JAVASCRIPT INTERACTIVITY 💻 --- */
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // 2. Project Card Interactivity
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Check if a detailed description is already present
+                    const existingDetails = this.querySelector('.project-details');
+                    
+                    if (existingDetails) {
+                        // If it exists, remove it (collapse)
+                        existingDetails.remove();
+                    } else {
+                        // If it doesn't exist, create and append it (expand)
+                        // Remove any other currently expanded detail section first
+                        document.querySelectorAll('.project-details').forEach(d => d.remove());
+
+                        const detailsText = this.getAttribute('data-details');
+                        const detailsElement = document.createElement('p');
+                        detailsElement.classList.add('project-details');
+                        detailsElement.style.marginTop = '10px';
+                        detailsElement.style.padding = '10px';
+                        detailsElement.style.borderLeft = '3px solid #f97316'; /* Hacker Orange highlight */
+                        detailsElement.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                        detailsElement.style.color = 'var(--text-light)';
+                        detailsElement.textContent = '>> ' + detailsText;
+
+                        this.appendChild(detailsElement);
+                    }
+                });
+            });
+
+            // 3. Simple Scroll Spy (Optional: for highlighting nav link on scroll)
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 70) { // Adjust -70 for fixed header height
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('nav ul li a').forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href').substring(1) === current) {
+                        a.classList.add('active');
+                    }
+                });
+            });
+            // Add a style for active nav link (not present in the main CSS for brevity, but useful)
+            // Example: nav ul li a.active { background-color: #f97316; }
+        });
+    </script>
+</body>
+</html>
