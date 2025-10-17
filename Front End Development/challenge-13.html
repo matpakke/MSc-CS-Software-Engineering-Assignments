@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: สร้าง Airbnb Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ/f1c4X8yD/4y8jJ6l2P8U3e75U877fJjC+S7n4/0W1yFw2Gq8I58F5z8D5O" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* การจัดวางภาพลักษณ์ของเว็บไซต์ */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* เลือกฟอนต์ที่อ่านง่าย */
+            color: #222222; /* สีข้อความหลัก */
+        }
+
+        /* ----------------------------------------------------- */
+        /* ส่วนแถบนำทาง (Navbar) */
+        .navbar-airbnb {
+            padding: 10px 50px;
+        }
+        .airbnb-logo {
+            color: #FF5A5F;
+            font-size: 30px;
+        }
+        
+        /* ----------------------------------------------------- */
+        /* ส่วนแถบประเภทที่พัก (Categories Bar) */
+        .category-bar {
+            display: flex;
+            overflow-x: auto; /* ทำให้เลื่อนได้ในแนวนอน */
+            white-space: nowrap;
+            padding: 0 50px;
+            gap: 30px;
+            scrollbar-width: none; /* ซ่อน scrollbar สำหรับ Firefox */
+            -ms-overflow-style: none; /* ซ่อน scrollbar สำหรับ IE/Edge */
+        }
+        .category-bar::-webkit-scrollbar {
+            display: none; /* ซ่อน scrollbar สำหรับ Chrome/Safari/Opera */
+        }
+
+        .category-item {
+            text-align: center;
+            cursor: pointer;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent; 
+            opacity: 0.6;
+            transition: all 0.2s ease-in-out;
+            min-width: 60px; /* เพื่อป้องกันการยุบตัว */
+        }
+        .category-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .category-item:hover, .category-item.active {
+            opacity: 1;
+            border-bottom-color: #222222; 
+        }
+
+        /* ----------------------------------------------------- */
+        /* ส่วน Card ที่พัก */
+
+        .listing-card {
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        /* ใช้สำหรับ wrapper ของรูปภาพใน card */
+        .listing-image-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            /* กำหนดอัตราส่วนภาพ 4:3 */
+            padding-top: 75%; 
+        }
+
+        /* **CSS ที่แนะนำ (background-image, background-size, background-position)** */
+        .listing-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* ใช้ background-image แทน <img> */
+            /* ตัวอย่าง: background-image: url('URL_ของรูปภาพ.jpg'); */ 
+            
+            background-size: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ทั้งหมด */
+            background-position: center center; /* จัดตำแหน่งตรงกลาง */
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .listing-card:hover .listing-image {
+            transform: scale(1.05); /* เอฟเฟกต์ซูมเล็กน้อยเมื่อโฮเวอร์ */
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0; /* ซ่อนปุ่มเริ่มต้น */
+            transition: opacity 0.3s;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .listing-card:hover .carousel-control-prev, 
+        .listing-card:hover .carousel-control-next {
+            opacity: 1; /* แสดงปุ่มเมื่อโฮเวอร์ที่ Card */
+        }
+        
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            filter: invert(1); /* เปลี่ยนไอคอนเป็นสีดำ */
+        }
+        
+        .favorite-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 20px;
+            z-index: 10;
+            cursor: pointer;
+        }
+        
+        /* ----------------------------------------------------- */
+        /* อื่นๆ */
+        .star-rating {
+            font-size: 14px;
+        }
+        .star-rating i {
+            color: #FF385C; /* สีแดงของดาว */
+        }
+        
+        /* **CSS ที่แนะนำ (place-items)** - สำหรับจัดวาง content ใน container */
+        .navbar-right-menu {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 10px;
+            /* place-items: center; /* จัดให้อยู่ตรงกลางทั้งแนวนอนและแนวตั้ง */
+        }
+        
+        /* **CSS ที่แนะนำ (text-align-last)** - สำหรับข้อความ */
+        .listing-card .card-text:last-of-type {
+            text-align-last: left; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg border-bottom sticky-top bg-white navbar-airbnb">
+            <div class="container-fluid">
+                <a class="navbar-brand me-5" href="#">
+                    <i class="fab fa-airbnb airbnb-logo"></i>
+                    <span class="fw-bold d-none d-sm-inline ms-1" style="color:#FF5A5F;">airbnb</span>
+                </a>
+                
+                <div class="d-none d-lg-block mx-auto">
+                    <div class="btn-group border rounded-pill shadow-sm" role="group">
+                        <button type="button" class="btn btn-light fw-bold px-3 py-2 border-end">ทุกที่</button>
+                        <button type="button" class="btn btn-light fw-bold px-3 py-2 border-end">ทุกสัปดาห์</button>
+                        <button type="button" class="btn btn-light text-muted px-3 py-2">เพิ่มผู้เข้าพัก <i class="fas fa-search ms-2 p-1 rounded-circle" style="background-color: #FF5A5F; color: white;"></i></button>
+                    </div>
+                </div>
+
+                <div class="navbar-right-menu ms-auto">
+                    <button class="btn btn-light rounded-pill d-none d-md-block fw-bold">ให้เช่าที่พัก</button>
+                    <button class="btn btn-light rounded-circle"><i class="fas fa-globe"></i></button>
+                    <button class="btn btn-light rounded-pill border py-1 px-2">
+                        <i class="fas fa-bars me-1"></i>
+                        <i class="fas fa-user-circle fs-5 text-secondary"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="category-bar border-bottom py-3 bg-white">
+            <div class="category-item active">
+                <i class="fas fa-water"></i>
+                <div class="text-nowrap small">วิวทะเลสาบ</div>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-tractor"></i>
+                <div class="text-nowrap small">ไร่นา</div>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-campground"></i>
+                <div class="text-nowrap small">แคมป์ปิ้ง</div>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-snowflake"></i>
+                <div class="text-nowrap small">รีสอร์ตสกี</div>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-igloo"></i>
+                <div class="text-nowrap small">อิกลู</div>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-ship"></i>
+                <div class="text-nowrap small">เรือ</div>
+            </div>
+            <div class="category-item">
+                <i class="fas fa-tree"></i>
+                <div class="text-nowrap small">บ้านต้นไม้</div>
+            </div>
+             <div class="category-item">
+                <i class="fas fa-hot-tub"></i>
+                <div class="text-nowrap small">สระว่ายน้ำ</div>
+            </div>
+             <div class="category-item">
+                <i class="fas fa-mountain"></i>
+                <div class="text-nowrap small">ภูเขา</div>
+            </div>
+            <button class="btn btn-outline-light text-dark border ms-auto d-none d-lg-block" style="height: fit-content;">
+                <i class="fas fa-filter me-2"></i> ตัวกรอง
+            </button>
+        </div>
+    </header>
+<hr>
+    <main class="container-fluid px-5 py-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+            
+            <div class="col">
+                <div class="card h-100 border-0 listing-card">
+                    <div id="carouselListing1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                        <div class="carousel-inner listing-image-wrapper">
+                            <i class="far fa-heart favorite-btn"></i>
+                            <div class="carousel-item active">
+                                <div class="listing-image" style="background-image: url('https://picsum.photos/id/1018/800/600');"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="listing-image" style="background-image: url('https://picsum.photos/id/1043/800/600');"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselListing1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselListing1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                    <div class="card-body p-2">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title mb-1 fw-bold">ภูเก็ต, ไทย</h5>
+                            <span class="star-rating"><i class="fas fa-star"></i> 4.95</span>
+                        </div>
+                        <p class="card-text text-muted mb-0">ห่างจากใจกลาง 200 กม.</p>
+                        <p class="card-text text-muted mb-2">3-8 มิ.ย.</p>
+                        <p class="card-text mt-2"><span class="fw-bold">฿8,500</span> คืน</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card h-100 border-0 listing-card">
+                    <div id="carouselListing2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                        <div class="carousel-inner listing-image-wrapper">
+                            <i class="far fa-heart favorite-btn"></i>
+                            <div class="carousel-item active">
+                                <div class="listing-image" style="background-image: url('https://picsum.photos/id/10/800/600');"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="listing-image" style="background-image: url('https://picsum.photos/id/103/800/600');"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselListing2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselListing2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title mb-1 fw-bold">เชียงใหม่, ไทย</h5>
+                            <span class="star-rating"><i class="fas fa-star"></i> 4.70</span>
+                        </div>
+                        <p class="card-text text-muted mb-0">ห่างจากใจกลาง 150 กม.</p>
+                        <p class="card-text text-muted mb-2">20-25 มิ.ย.</p>
+                        <p class="card-text mt-2"><span class="fw-bold">฿5,200</span> คืน</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 listing-card">
+                    <div id="carouselListing3" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                        <div class="carousel-inner listing-image-wrapper">
+                            <i class="far fa-heart favorite-btn"></i>
+                            <div class="carousel-item active">
+                                <div class="listing-image" style="background-image: url('https://picsum.photos/id/1040/800/600');"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title mb-1 fw-bold">โตเกียว, ญี่ปุ่น</h5>
+                            <span class="star-rating"><i class="fas fa-star"></i> 5.0</span>
+                        </div>
+                        <p class="card-text text-muted mb-0">ใจกลางเมือง</p>
+                        <p class="card-text text-muted mb-2">1-6 ก.ค.</p>
+                        <p class="card-text mt-2"><span class="fw-bold">฿12,000</span> คืน</p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </main>
+<hr>
+    <footer class="container-fluid px-5 py-4 border-top">
+        <div class="row small text-muted">
+            <div class="col-md-4">
+                <h6 class="fw-bold">สนับสนุน</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-muted">ศูนย์ช่วยเหลือ</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">AirCover</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">การรับมือภาวะฉุกเฉิน</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold">การจองที่พัก</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-muted">ให้เช่าที่พักของคุณ</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">AirCover สำหรับโฮสต์</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">แหล่งข้อมูลสำหรับโฮสต์</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold">Airbnb</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-muted">ข่าวสาร</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">งาน</a></li>
+                    <li><a href="#" class="text-decoration-none text-muted">นักลงทุน</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-4 pt-3 border-top small text-muted">
+            &copy; 2025 Airbnb, Inc.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
