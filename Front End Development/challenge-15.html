@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การพัฒนาระบบสารสนเทศด้วยบูทแสตรป ฟอนท์เอ็น เฟรมเวิร์ค ในการบริหารจัดการข้อมูลข้าวพันธุ์พื้นเมืองในพื้นที่จังหวัดนครศรีธรรมราช</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* CSS เพิ่มเติมเพื่อให้สอดคล้องกับภาพตัวอย่างในงานวิจัย [cite: 259, 284] */
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .header-section {
+            background-color: #f8f9fa; /* สีพื้นหลังอ่อน ๆ */
+            padding: 40px 0;
+            text-align: center;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 1.25em;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .footer-section {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* จำลองส่วนหัวของหน้าเว็บ [cite: 262] */
+        .site-header {
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="#">ข้าวพันธุ์พื้นเมืองบ้านโคกสูง</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#">หน้าหลัก</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">เรื่องของข้าว</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">สินค้า</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">เกี่ยวกับเรา</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">ติดต่อสอบถาม</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">ล็อกอิน</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cart"></i> ตะกร้า</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5">
+        <h2 class="text-center mb-4">สินค้าทั้งหมด</h2>
+        
+        <div class="row">
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=Khao+Ai+Liang+Rice" alt="ข้าวไอ้เลี้ยง" class="img-fluid">
+                    <h5 class="card-title">ข้าวไอ้เลี้ยง</h5>
+                    <p class="text-muted">ข้าวพันธุ์พื้นเมืองของจังหวัดนครศรีธรรมราช ทนทานต่อโรค</p>
+                    <p class="price">55 ฿</p>
+                    <button class="btn btn-success add-to-cart" data-product="ข้าวไอ้เลี้ยง">หยิบใส่ตะกร้า</button>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=Khao+Luk+Lai+Rice" alt="ข้าวลูกลาย" class="img-fluid">
+                    <h5 class="card-title">ข้าวลูกลาย</h5>
+                    <p class="text-muted">เป็นข้าวที่มีต้นทุนในการดูแลต่ำ สามารถปลูกได้ปีละหนึ่งครั้ง</p>
+                    <p class="price">55 ฿</p>
+                    <button class="btn btn-success add-to-cart" data-product="ข้าวลูกลาย">หยิบใส่ตะกร้า</button>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200?text=Khao+Khai+Mod+Rin+Rice" alt="ข้าวไข่มดริ้น" class="img-fluid">
+                    <h5 class="card-title">ข้าวไข่มดริ้น</h5>
+                    <p class="text-muted">ข้าวพันธุ์พื้นเมืองที่นิยมบริโภคเฉพาะคนในพื้นที่ [cite: 24]</p>
+                    <p class="price">55 ฿</p>
+                    <button class="btn btn-success add-to-cart" data-product="ข้าวไข่มดริ้น">หยิบใส่ตะกร้า</button>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row my-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">เรื่องของข้าว: ภูมิปัญญาท้องถิ่น</h3>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <h4>ประวัติข้าวพันธุ์พื้นเมืองบ้านโคกสูง</h4>
+                        <p>ข้าวพันธุ์พื้นเมืองมีการเพาะปลูกมาตั้งแต่สมัยโบราณ ทนทานต่อโรคแมลง และปรับตัวให้เข้ากับสภาพแวดล้อมได้ดี [cite: 20] กินแล้วรู้สึกอิ่มท้องได้นานกว่าข้าวชนิดอื่น ๆ [cite: 24]</p>
+                        <a href="#" class="btn btn-outline-secondary">อ่านเพิ่มเติม</a>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <h4>ขั้นตอนการปลูกข้าวแบบดั้งเดิม</h4>
+                        <p>ข้อมูลภูมิปัญญาการปลูกข้าวของชาวนาที่สืบทอดกันมา [cite: 25] ซึ่งเป็นส่วนหนึ่งของชุดข้อมูลที่ใช้ในการพัฒนาระบบ [cite: 319]</p>
+                        <a href="#" class="btn btn-outline-secondary">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row my-5">
+            <div class="col-12 text-center">
+                <h3>สนับสนุนโดย</h3>
+                <img src="https://via.placeholder.com/100x100?text=LOGO+1" alt="ผู้สนับสนุน 1" class="mx-3">
+                <img src="https://via.placeholder.com/100x100?text=LOGO+2" alt="ผู้สนับสนุน 2" class="mx-3">
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2022 ข้าวพันธุ์พื้นเมืองบ้านโคกสูง | พัฒนาระบบด้วย Bootstrap Front-end Framework [cite: 2, 13]</p>
+            <p>ติดต่อ: utumporn_sri@nstru.ac.th [cite: 3]</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.getAttribute('data-product');
+                    // ผู้ใช้งาน (user) ต้องทำการสมัครสมาชิก/ล็อกอินก่อนเพื่อสั่งซื้อสินค้า [cite: 257]
+                    
+                    alert(`กรุณาล็อกอินหรือสมัครสมาชิกเพื่อสั่งซื้อสินค้า: ${productName} \n(ตามสิทธิ์การใช้งานของ 'ผู้ใช้งาน' ที่มีสิทธิ์เพียงเรียกดูข้อมูล หากประสงค์ซื้อต้องสมัครสมาชิก 'สมาชิก') [cite: 257]`);
+                    
+                    // หากเป็น "สมาชิก" (member) จะสามารถหยิบสินค้าลงตะกร้าได้ [cite: 241]
+                    // ในระบบจริงจะมีการส่งข้อมูลสินค้าไปยังฐานข้อมูล/ตะกร้าสินค้า
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
