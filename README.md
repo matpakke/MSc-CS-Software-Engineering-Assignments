@@ -16,7 +16,7 @@ Repository for assignments and quizzes for the Master of Science in Computer Sci
 | [Challenge: สร้างวงกลมหมุน](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-8.html)                                                                               | 95 / 100 pts  | Pass       |
 | [Challenge: แก้ไข To-do list](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-9.html)                                                                              | 100 / 100 pts  | Pass             |
 | Quiz: Pseudo-class และ Pseudo-element                                                                     | 100 / 100 pts  | Pass             |
-| Challenge: สร้างเว็บไซต์พอร์ตโฟลิโอ                                                                      | - / 100 pts  | No submission for this assignment       |
+| [Challenge: สร้างเว็บไซต์พอร์ตโฟลิโอ](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-14.html)                                                                      | - / 100 pts  | No submission for this assignment       |
 | Quiz: Box Model                                                                                           | 100 / 100 pts| Pass           |
 | [Challenge: แก้ไข Layout Mobile App](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-10.html)                                                                       | 100 / 100 pts  | Pass       |
 | [Challenge: สร้าง Card List ด้วย Bootstrap](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-11.html)                                                                | 100 / 100 pts  | Pass       |
@@ -25,6 +25,7 @@ Repository for assignments and quizzes for the Master of Science in Computer Sci
 | Quiz: Bootstrap Grid System                                                                               | 100 / 100 pts| Pass           |
 | [Challenge: สร้างตารางผลไม้](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-2.html)                                                                               | 100 / 100 pts  | Pass       |
 | [Challenge: สร้าง Airbnb Clone](https://github.com/matpakke/MSc-CS-Software-Engineering-Assignments/blob/main/Front%20End%20Development/challenge-13.html)                                                                             | - / 100 pts  | No submission for this assignment       |
+
 
 
 
