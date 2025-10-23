@@ -1,2 +1,4 @@
+Currently using this car
 This car was purchased on xx/xx/xxxx
 This car was purchased for x9,999,999
+This car is green
