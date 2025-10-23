@@ -1,6 +1,4 @@
-# Instructions (English)
-
-Follow the steps below in order. When finished, attach a screenshot of your commit history.
+# Challenge 1 Committing Exercise
 
 1. Create a new folder named `Garage`.
 
